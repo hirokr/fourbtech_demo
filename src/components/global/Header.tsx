@@ -1,26 +1,26 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef, useState, useEffect } from "react";
 import ArrowButton from "./ArrowButton";
 import { ChevronDown, Menu, X } from "lucide-react";
 import gsap from "gsap";
 import { useWindowScroll } from "react-use";
+import Link from "next/link";
 
 const links = [
   { title: "Home", path: "/", sub: [] },
   { title: "About", path: "/about", sub: [] },
   {
     title: "Services",
-    path: "/Services",
+    path: "/services",
     sub: [
-      { title: "Web Development", path: "/Services/web-development" },
+      { title: "Web Development", path: "/services/web-development" },
       {
         title: "Mobile Application Development",
-        path: "/Services/mobile-apps",
+        path: "/services/mobile-apps",
       },
-      { title: "Digital Marketing", path: "/Services/digital-marketing" },
+      { title: "Digital Marketing", path: "/services/digital-marketing" },
     ],
   },
   // {
@@ -105,6 +105,13 @@ const Header = () => {
       <header className="bsolute absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex-between main-container bg-custom-white">
           <Link href="/" className="relative w-20 sm:w-28 md:w-32">
+            {/* <img
+              src="/Primary logo.svg"
+              alt="Logo"
+              width={200}
+              height={200}
+              className="origin-center object-cover object-center"
+            /> */}
             <Image
               src="/Primary logo.svg"
               alt="Logo"
@@ -125,7 +132,7 @@ const Header = () => {
                 return (
                   <li
                     key={link.title}
-                    className="group hover:text-accent-hover hover:bg-dark-bg-primary/10 relative cursor-pointer rounded-4xl p-2 duration-500"
+                    className="group hover:text-accent-hover hover:bg-dark-bg-primary/10 relative cursor-pointer rounded-4xl px-6 py-2 duration-500"
                     onMouseEnter={() => hasSub && setActiveDropdown(link.title)}
                     onMouseLeave={() => hasSub && setActiveDropdown(null)}
                   >
@@ -187,7 +194,10 @@ const Header = () => {
           <div className="flex-center">
             <div className="hidden sm:block">
               <ArrowButton left={true} size={30} className="h-1/2 md:h-1/3">
-                <Link href="/#contact" className="w-full">
+                <Link
+                  href={{ pathname: "/", hash: "contact" }}
+                  className="w-full"
+                >
                   Let&apos;s talk
                 </Link>
               </ArrowButton>
@@ -293,7 +303,7 @@ const Header = () => {
                       variant="fill"
                     >
                       <Link
-                        href="/#contact"
+                        href={{ pathname: "/", hash: "contact" }}
                         className="text-cente w-full"
                         onClick={closeMobileMenu}
                       >

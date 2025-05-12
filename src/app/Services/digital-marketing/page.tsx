@@ -7,13 +7,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Metadata } from "next";
+import digital from "../../../public/digital/digital.png";
+import strategy from "../../../public/digital/strategy.png";
 
 export const metadata: Metadata = {
   title: "FourBtech | Services",
   description: "Tech Service Provider",
-  icons: {
-    icon: "/Primary logo.svg",
-  },
 };
 
 const page = () => {
@@ -23,7 +22,7 @@ const page = () => {
       <section className="relative mb-14">
         <div className="relative flex h-[300px] w-full items-center justify-center bg-gray-900">
           <Image
-            src="/digital/digital.png"
+            src={digital}
             alt="Code background"
             fill
             className="object-cover opacity-50"
@@ -48,7 +47,7 @@ const page = () => {
       <section className="main-container grid grid-cols-1 gap-12 object-center !pb-32 lg:grid-cols-2">
         <div className="order-1 h-full w-full lg:order-2">
           <Image
-            src="/digital/strategy.png"
+            src={strategy}
             width={300}
             height={300}
             className="h-full w-full object-cover"
@@ -70,7 +69,9 @@ const page = () => {
           </p>
           <div className="">
             <ArrowButton variant="blueOutline" right className="!px-6 !py-6">
-              <Link href="/#contact">Get In touch</Link>
+              <Link href={{ pathname: "/", hash: "contact" }}>
+                Get In touch
+              </Link>
             </ArrowButton>
           </div>
         </div>
@@ -87,7 +88,9 @@ const page = () => {
           to help you achieve real, measurable results.
         </p>
         <ArrowButton variant="fill" size={20} left className="!py-5">
-          <Link href="/#contact">get free seo consultation</Link>
+          <Link href={{ pathname: "/", hash: "contact" }}>
+            get free seo consultation
+          </Link>
         </ArrowButton>
       </section>
       {/* SEO Explainded */}

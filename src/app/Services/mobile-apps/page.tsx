@@ -7,13 +7,16 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import mobileDev from "../../../../public/mobile/mobileDev.png";
+import performance from "../../../../public/mobile/performance.png";
+import flutter from "../../../../public/Icons/app/flutter.png";
+import java from "../../../../public/Icons/app/java.png";
+import ReactNative from "../../../../public/Icons/app/react-native.png";
+import methodology from "../../../../public/Icons/app/methodology.png";
 
 export const metadata: Metadata = {
   title: "FourBtech | Services",
   description: "Tech Service Provider",
-  icons: {
-    icon: "/Primary logo.svg",
-  },
 };
 
 const page = () => {
@@ -23,7 +26,7 @@ const page = () => {
       <section className="relative mb-14">
         <div className="relative flex h-[300px] w-full items-center justify-center bg-gray-900">
           <Image
-            src="/mobile/mobileDev.png"
+            src={mobileDev}
             alt="Code background"
             fill
             className="object-cover opacity-50"
@@ -101,7 +104,7 @@ const page = () => {
         </div>
         <div className="order-1 h-full w-full lg:order-2">
           <Image
-            src="/mobile/performance.png"
+            src={performance}
             width={300}
             height={300}
             className="h-full w-full object-cover"
@@ -113,14 +116,14 @@ const page = () => {
       <section className="main-container grid grid-cols-1 gap-12 object-center !pb-32 lg:grid-cols-2">
         <div className="order-1 h-full w-full lg:order-2">
           <Image
-            src="/mobile/flutter.png"
+            src={flutter}
             width={300}
             height={300}
             className="h-full w-full object-cover"
             alt="development"
           />
         </div>
-        <div className="order-2 flex flex-col items-start justify-center gap-4 h-full">
+        <div className="order-2 flex h-full flex-col items-start justify-center gap-4">
           <h1 className="text-h1-color mb-3 font-semibold">
             Development Tools
           </h1>
@@ -130,25 +133,22 @@ const page = () => {
             Devices And Pperating Systems, Enhancing Efficiency And Cutting Down
             Costs.
           </p>
-          <div className="flex w-full items-center gap-6 pt-4 text-[.8rem] sm:text-[.9rem] ">
+          <div className="flex w-full items-center gap-6 pt-4 text-[.8rem] sm:text-[.9rem]">
             <div className="relative h-20 w-20 md:h-16 md:w-16">
-              <Image
-                src="/Icons/app/react-native.png"
-                fill
-                alt="React Native"
-                priority
-              />
+              <Image src={ReactNative} fill alt="React Native" priority />
             </div>
             <div className="relative h-20 w-20 md:h-16 md:w-16">
-              <Image src="/Icons/app/flutter.png" fill alt="Flutter" />
+              <Image src={flutter} fill alt="Flutter" />
             </div>
             <div className="relative h-28 w-28 md:h-28 md:w-28">
-              <Image src="/Icons/app/java.png" fill alt="Java" priority />
+              <Image src={java} fill alt="Java" priority />
             </div>
           </div>
           <div className="">
             <ArrowButton variant="outline" right className="!px-7 !py-5">
-              <Link href="/#contact">Get In touch</Link>
+              <Link href={{ pathname: "/", hash: "contact" }}>
+                Get In touch
+              </Link>
             </ArrowButton>
           </div>
         </div>
@@ -158,9 +158,7 @@ const page = () => {
       {/* Our Methodology */}
       <section className="main-container grid grid-cols-1 gap-12 object-center !pb-32 lg:grid-cols-2">
         <div className="flex flex-col items-start justify-center gap-6">
-          <h1 className="text-h1-color mb-3 font-semibold">
-            Our Methodology
-          </h1>
+          <h1 className="text-h1-color mb-3 font-semibold">Our Methodology</h1>
           <p className="text-[clamp(.8rem, 2vw, 1rem)]">
             Our approach sets us apart as the preferred partner for outsourced
             mobile application development and software engineering solutions.
@@ -180,7 +178,7 @@ const page = () => {
         </div>
         <div className="h-full w-full">
           <Image
-            src="/Icons/app/methodology.png"
+            src={methodology}
             width={300}
             height={300}
             className="h-full w-full object-cover"
